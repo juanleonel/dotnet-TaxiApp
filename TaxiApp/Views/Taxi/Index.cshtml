@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TaxiApp.Web.Models.TaxiViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Taxi</h1>
+
+<p>
+    <a class="btn btn-info" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroEconomico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaAlta)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Baja)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Matricula)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Placa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumeroEconomico)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaAlta)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Baja)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.Id  })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        $(function() {
+            console.log( "ready!" );
+        });
+    </script>
+}
